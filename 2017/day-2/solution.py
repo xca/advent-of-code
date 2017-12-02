@@ -29,3 +29,28 @@ for line in numbers.splitlines():
   #print("max is：",max)
   sum += (max-min)
 print("sum is: ", sum)  
+def evenDivide(a,b):
+  if(a == 0 or b == 0):
+    return False
+  if (b>a):
+    tmp = a
+    a = b
+    b = tmp
+  if(a%b == 0):
+    return True
+  return False
+sum2 = 0
+for line in numbers.splitlines():
+  data = line.split()
+  length = len(data)
+  for i in range(length-1):
+    for j in range(i+1,length):
+      a = int(data[i])
+      b = int(data[j])
+      if(evenDivide(int(data[i]), int(data[j]))):
+        print("a b ---",a,b)
+        if (a>b):
+          sum2 += a/b
+        else:
+          sum2 += b/a
+print ("sum2 is: ", sum2)     
