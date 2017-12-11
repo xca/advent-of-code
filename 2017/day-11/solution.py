@@ -2,7 +2,7 @@ directionString = open('input_notepad.txt','r').read().strip()
 #directionString = "se,sw,se,sw,sw"
 directions = directionString.split(',')
 
-def cancel(count):
+def cancelSteps(count):
   #2 steps -> 0 steps:
   minNS = min(count['n'],count['s'])
   count['n'] -= minNS
@@ -16,7 +16,7 @@ def cancel(count):
   count['nw'] -= minNwSe
   count['se'] -= minNwSe
 
-def reduce(count):
+def reduceSteps(count):
 # N + SW = NW
   minNSw = min(count['n'],count['sw'])
   count['n'] -= minNSw
@@ -57,8 +57,8 @@ for d in directions:
       count[d] += 1
     else:
       print("Invalid input:",d)
-    cancel(count)
-    reduce(count)
+    cancelSteps(count)
+    reduceSteps(count)
     s = 0
     for key,val in count.items():
       s += val
