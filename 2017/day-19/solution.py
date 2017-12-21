@@ -15,16 +15,7 @@ d = D
 letters = []
 steps = 0
 while True:
-    if matrix[x][y] == '|':
-        if d == D:
-            x+=1
-        elif d == U:
-            x-=1
-        elif d == R:
-            y+=1
-        elif d == L:
-            y-=1
-    elif matrix[x][y] == '-':
+    if matrix[x][y] == '|' or matrix[x][y]=='-':
         if d == D:
             x+=1
         elif d == U:
